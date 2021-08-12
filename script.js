@@ -58,10 +58,21 @@ function game(){
 }
 
 console.log('start');
-// console.log(computerPlay());
+// // console.log(computerPlay());
 
-// const playerSelection = "rock";
-// const computerSelection = computerPlay();
-// console.log(playRound(playerSelection, computerSelection));
+// // const playerSelection = "rock";
+// // const computerSelection = computerPlay();
+// // console.log(playRound(playerSelection, computerSelection));
 
-game()
+// game()
+
+const rockbtn = document.querySelector('#rock');
+rockbtn.onclick = () => console.log(playRound('rock',computerPlay()));
+// rockbtn.onclick = () => alert('test');
+
+const paperbtn = document.querySelector('#paper');
+paperbtn.onclick = () => console.log(playRound('paper',computerPlay()));
+
+const scissorsbtn = document.querySelector('#scissors');
+scissorsbtn.onclick = () => console.log(playRound('scissors',computerPlay()));
+
