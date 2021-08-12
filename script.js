@@ -12,38 +12,45 @@ function computerPlay(){
 function playRound(playerSelection, computerSelection){
     playerSelection= playerSelection.toLowerCase();
     computerSelection= computerSelection.toLowerCase();
-    let loseMessage = `You Lose!\n${playerSelection} loses to ${computerSelection}`;
-    let winMessage = `You Win!\n${playerSelection} beats ${computerSelection}`;
+    // let loseMessage = `You Lose!\n${playerSelection} loses to ${computerSelection}`;
+    // let winMessage = `You Win!\n${playerSelection} beats ${computerSelection}`;
+    const resultdiv = document.querySelector('#result');
+    let loseMessage = function(){
+        resultdiv.textContent = `You Lose!\n${playerSelection} loses to ${computerSelection}`;
+    }
+    let winMessage = function(){
+        resultdiv.textContent = `You Win!\n${playerSelection} beats ${computerSelection}`;
+    }
 
     if(playerSelection == computerSelection){
         // console.log('test2')
-        return "You Tie!\nGo Again";
+        resultdiv.textContent= "You Tie!\nGo Again";
     }
 
     if(playerSelection=='rock'){
         // console.log('test')
         // console.log('bla'+computerSelection)
         if(computerSelection=='paper'){
-            return loseMessage;
+            loseMessage();
         } 
         else if(computerSelection=='scissors'){
-            return winMessage;
+            winMessage();
         }
     }
     else if(playerSelection=='paper'){
         if(computerSelection=='scissors'){
-            return loseMessage;
+            loseMessage();
         } 
         else if(computerSelection=='rock'){
-            return winMessage;
+            winMessage();
         }
     }
     else if(playerSelection=='scissors'){
         if(computerSelection=='rock'){ 
-            return loseMessage;
+            loseMessage();
         }
         else if(computerSelection=='paper'){
-            return winMessage;
+            winMessage();
         }
     }
 }
@@ -67,12 +74,12 @@ console.log('start');
 // game()
 
 const rockbtn = document.querySelector('#rock');
-rockbtn.onclick = () => console.log(playRound('rock',computerPlay()));
+rockbtn.onclick = () => playRound('rock',computerPlay());
 // rockbtn.onclick = () => alert('test');
 
 const paperbtn = document.querySelector('#paper');
-paperbtn.onclick = () => console.log(playRound('paper',computerPlay()));
+paperbtn.onclick = () => playRound('paper',computerPlay());
 
 const scissorsbtn = document.querySelector('#scissors');
-scissorsbtn.onclick = () => console.log(playRound('scissors',computerPlay()));
+scissorsbtn.onclick = () => playRound('scissors',computerPlay());
 
